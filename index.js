@@ -44,6 +44,8 @@ app.options('*', (req, res) => {
 
 dotenv.config()
 
+mongoose.set('strictQuery', true)
+
 mongoose
   .connect(process.env.Vercel_MONGO_DB, {
     useNewUrlParser: true,
