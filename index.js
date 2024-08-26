@@ -41,10 +41,13 @@ app.options('*', (req, res) => {
 dotenv.config()
 
 mongoose
-  .connect(process.env.MONGO_DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    'mongodb+srv://najlae01:developing1@cluster0.y8vpsap.mongodb.net/SocialMedia?retryWrites=true&w=majority',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() =>
     app.listen(process.env.PORT, () =>
       console.log(`Listening at ${process.env.PORT}`)
