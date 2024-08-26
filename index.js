@@ -46,13 +46,13 @@ dotenv.config()
 mongoose.set('strictQuery', true)
 
 mongoose
-  .connect(process.env.Vercel_MONGO_DB, {
+  .connect(process.env.NEXT_MONGO_DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() =>
-    app.listen(process.env.Vercel_PORT, () =>
-      console.log(`Listening at ${process.env.Vercel_PORT}`)
+    app.listen(process.env.NEXT_PORT, () =>
+      console.log(`Listening at ${process.env.NEXT_PORT}`)
     )
   )
   .catch((error) => console.log(error))
