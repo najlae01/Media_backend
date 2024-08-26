@@ -13,11 +13,11 @@ import UploadRoute from './Routes/UploadRoute.js'
 const app = express()
 
 //to serve images for public
-// app.use(express.static('public'))
-// app.use('/images', express.static('images'))
+app.use(express.static('public'))
+app.use('/images', express.static('images'))
 // Serve static files
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
-app.use('/images', express.static(path.join(__dirname, 'public/images')))
+// const __dirname = path.dirname(new URL(import.meta.url).pathname)
+// app.use('/images', express.static(path.join(__dirname, 'public/images')))
 
 //Middleware
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
