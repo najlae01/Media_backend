@@ -41,16 +41,13 @@ app.options('*', (req, res) => {
 dotenv.config()
 
 mongoose
-  .connect(
-    'mongodb+srv://najlae01:developing1@cluster0.y8vpsap.mongodb.net/SocialMedia?retryWrites=true&w=majority',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.Vercel_MONGO_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() =>
-    app.listen(process.env.PORT, () =>
-      console.log(`Listening at ${process.env.PORT}`)
+    app.listen(process.env.Vercel_PORT, () =>
+      console.log(`Listening at ${process.env.Vercel_PORT}`)
     )
   )
   .catch((error) => console.log(error))

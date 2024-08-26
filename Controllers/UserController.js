@@ -55,7 +55,7 @@ export const updateUser = async (req, res) => {
 
       /*const token = jwt.sign(
         { username: user, id: user._id },
-        process.env.JWT_KEY,
+        process.env.Vercel_JWT_KEY,
         { expiresIn: '1h' }
       )*/
 

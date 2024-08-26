@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 
 dotenv.config()
-const secret = process.env.JWT_KEY
+const secret = process.env.Vercel_JWT_KEY
 
 const authMiddleWare = async (req, res, next) => {
   try {
