@@ -21,9 +21,13 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(
   cors({
     origin: 'https://media-frontend-five.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
 )
+
+app.options('*', cors())
 
 dotenv.config()
 
