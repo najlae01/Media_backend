@@ -7,16 +7,22 @@ import AuthRoute from './Routes/AuthRoute.js'
 import UserRoute from './Routes/UserRoute.js'
 import PostRoute from './Routes/PostRoute.js'
 import UploadRoute from './Routes/UploadRoute.js'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 
 // Routes
 const app = express()
 
 //to serve images for public
-app.use(express.static('public'))
-app.use('/images', express.static('images'))
-// Serve static files
-// const __dirname = path.dirname(new URL(import.meta.url).pathname)
-// app.use('/images', express.static(path.join(__dirname, 'public/images')))
+// app.use(express.static('public'))
+// app.use('/images', express.static('images'))
+
+// Get the directory name from the module's URL
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+// Serve static files from the "public/images" directory
+app.use('/images', express.static(join(__dirname, 'public/images')))
 
 //Middleware
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
